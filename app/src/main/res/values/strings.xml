@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HpTask</string>
+    <string name="enter_numbers_separated_by_space">Enter numbers separated by space</string>
 </resources>
