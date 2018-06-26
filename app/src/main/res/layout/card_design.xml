@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-
-
-    android:layout_margin="20dp"
-    android:background="#edeaec"
+    android:layout_height="400dp"
+    android:layout_margin="10dp"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:divider="@android:color/transparent"
@@ -19,26 +15,54 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/colorAccent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_pic"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:src="@drawable/backnew"
+                app:civ_border_color="#FF212121"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/content_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="#aa000000" />
 
         <TextView
-            android:id="@+id/book_title_id"
+            android:id="@+id/caption"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="TextView" />
+
     </LinearLayout>
+
 
 </android.support.v7.widget.CardView>
