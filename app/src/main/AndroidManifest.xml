@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pavan.tabs_with_fragments">
+    package="com.example.pavan.listview_fragments">
 
     <application
         android:allowBackup="true"

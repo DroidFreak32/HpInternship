@@ -1,4 +1,4 @@
-package com.example.pavan.tabs_with_fragments;
+package com.example.pavan.listview_fragments;
 
 
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.pavan.listview_fragments.R;
 
 import java.util.List;
 
@@ -30,14 +32,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view ;
-
-
         LayoutInflater mInflater = LayoutInflater.from(context);
         view = mInflater.inflate(R.layout.card_design,parent,false);
         return new MyViewHolder(view);
-
-
-
     }
 
     @Override

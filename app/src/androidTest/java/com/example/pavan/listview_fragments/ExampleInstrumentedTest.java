@@ -1,4 +1,4 @@
-package com.example.pavan.tabs_with_fragments;
+package com.example.pavan.listview_fragments;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.pavan.tabs_with_fragments", appContext.getPackageName());
+        assertEquals("com.example.pavan.listview_fragments", appContext.getPackageName());
     }
 }

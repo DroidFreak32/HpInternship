@@ -1,4 +1,4 @@
-package com.example.pavan.tabs_with_fragments;
+package com.example.pavan.listview_fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.pavan.listview_fragments.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +35,7 @@ public class fragment_two extends Fragment {
 
         RecyclerView myrv = rootView.findViewById(R.id.recyclerview_id);
 
-        RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getActivity(),list);
+      RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getActivity(),list);
 
         myrv.setLayoutManager(new LinearLayoutManager(getActivity()));
 

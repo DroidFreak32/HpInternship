@@ -1,4 +1,4 @@
-package com.example.pavan.tabs_with_fragments;
+package com.example.pavan.listview_fragments;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -8,6 +8,8 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import com.example.pavan.listview_fragments.R;
 
 public class MainActivity extends AppCompatActivity {
 

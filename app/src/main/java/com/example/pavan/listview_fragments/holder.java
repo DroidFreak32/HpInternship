@@ -1,4 +1,4 @@
-package com.example.pavan.tabs_with_fragments;
+package com.example.pavan.listview_fragments;
 
 public class holder {
 
