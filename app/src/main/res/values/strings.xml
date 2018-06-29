@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">HpTask</string>
     <string name="google_maps_api_key">AIzaSyDWqp_4Nu_-cL25LtQKzGd_ShA86Iks4NM</string>
+    <string name="title_location_permission">Location</string>
+    <string name="text_location_permission">Allow Location access to view the map?</string>
+    <string name="ok">OK</string>
 </resources>
