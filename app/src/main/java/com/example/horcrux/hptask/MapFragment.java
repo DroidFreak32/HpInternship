@@ -1,5 +1,6 @@
 package com.example.horcrux.hptask;
 
+import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +18,18 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
         GoogleMap.OnMapLongClickListener,
         GoogleMap.OnMapClickListener,
         GoogleMap.OnMarkerClickListener {
+
+    private final int[] MAP_TYPES = {
+            GoogleMap.MAP_TYPE_SATELLITE,
+            GoogleMap.MAP_TYPE_NORMAL,
+            GoogleMap.MAP_TYPE_HYBRID,
+            GoogleMap.MAP_TYPE_TERRAIN,
+            GoogleMap.MAP_TYPE_NONE
+    };
+    private GoogleApiClient mGoogleApiClient;
+    private Location mCurrentLocation;
+    private int curMapTypeIndex = 0;
+
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
