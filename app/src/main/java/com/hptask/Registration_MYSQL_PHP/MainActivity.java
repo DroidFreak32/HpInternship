@@ -1,11 +1,14 @@
-package com.example.pavan.registration;
+package com.hptask.Registration_MYSQL_PHP;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -14,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.hptask.Registration_MYSQL_PHP.display.DisplayActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,17 +26,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String url = "http://192.168.43.81" + "/regi.php";
-    EditText ed1;
-    Button btn;
+    private static final String url = "http://192.168.1.102" + "/regi.php";
+    EditText userNameText, userEmail, userPassword;
+    RadioGroup rb;
+    Button btn, displayButton;
     private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ed1 = findViewById(R.id.editText);
+        userNameText = findViewById(R.id.name);
+        userEmail = findViewById(R.id.userEmail);
+        userPassword = findViewById(R.id.userPassword);
+        rb = findViewById(R.id.gender);
         btn = findViewById(R.id.button);
+        displayButton = findViewById(R.id.displayButton);
         progressDialog = new ProgressDialog(this);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,15 +49,24 @@ public class MainActivity extends AppCompatActivity {
                 Register();
             }
         });
-
+        displayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, DisplayActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 
 
     public void Register() {
         StringRequest stringRequest;
-        final String username = ed1.getText().toString().trim();
-
+        final String username = userNameText.getText().toString().trim();
+        final String email = userEmail.getText().toString();
+        final String password = userPassword.getText().toString();
+        RadioButton selectedGender = findViewById(rb.getCheckedRadioButtonId());
+        final String gender = selectedGender.getText().toString();
         progressDialog.setMessage("Requesting");
         progressDialog.show();
 
@@ -81,7 +99,9 @@ public class MainActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("username", username);
-
+                params.put("email", email);
+                params.put("password", password);
+                params.put("gender", gender);
                 return params;
             }
 
