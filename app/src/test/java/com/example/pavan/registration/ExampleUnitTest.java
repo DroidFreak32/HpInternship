@@ -1,4 +1,4 @@
-package com.example.horcrux.hptask;
+package com.example.pavan.registration;
 
 import org.junit.Test;
 
