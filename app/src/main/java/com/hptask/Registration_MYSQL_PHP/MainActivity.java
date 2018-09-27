@@ -17,8 +17,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.hptask.Registration_MYSQL_PHP.display.DisplayActivity;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,9 +27,11 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private static final String url = "http://192.168.1.102" + "/regi.php";
+    private static final String signinurl = "http://192.168.1.102" + "/regi.php";
     EditText userNameText, userEmail, userPassword;
     RadioGroup rb;
     Button btn, displayButton;
+    String username, password, emailid;
     private ProgressDialog progressDialog;
 
     @Override
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         userEmail = findViewById(R.id.userEmail);
         userPassword = findViewById(R.id.userPassword);
         rb = findViewById(R.id.gender);
-        btn = findViewById(R.id.button);
+        btn = findViewById(R.id.register_button);
         displayButton = findViewById(R.id.displayButton);
         progressDialog = new ProgressDialog(this);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -49,16 +51,60 @@ public class MainActivity extends AppCompatActivity {
                 Register();
             }
         });
+//        displayButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(MainActivity.this, DisplayActivity.class);
+//                startActivity(i);
+//            }
+//        });
+
         displayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, DisplayActivity.class);
+                Intent i = new Intent(MainActivity.this, DashboardActivity.class);
+                username = userNameText.getText().toString();
+                password = userPassword.getText().toString();
+                emailid = userEmail.getText().toString();
+//                i.putExtra("username",userNameText.getText().toString());
+//                i.putExtra("password",userPassword.getText().toString());
+                sendDetails();
                 startActivity(i);
             }
         });
 
     }
 
+    private void sendDetails() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, signinurl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONArray array = new JSONArray(response);
+
+                            for (int i = 0; i < array.length(); i++) {
+
+                                JSONObject product = array.getJSONObject(i);
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+
+        Volley.newRequestQueue(this).add(stringRequest);
+    }
 
     public void Register() {
         StringRequest stringRequest;
